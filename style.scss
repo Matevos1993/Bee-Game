@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  --color-primary: rgb(59, 219, 255);
+  --color-secondary: rgb(244, 255, 45); 
+  --color-accent: rgb(219, 0, 62);
+  --color-button: rgb(56, 251, 72);
+  --color-button-text: rgb(4, 91, 204);
+  --color-button-hover: rgb(42, 234, 255);
+  --color-panel: rgb(32, 128, 223);
+  --color-modal: rgb(66, 156, 246);
+  --color-text: white;
+  --color-wings: rgba(77, 77, 110, 0.5);
+  --color-dark: black;
+  --shadow-modal: rgba(255, 255, 255, 0.24);
+  
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-round: 50px;
+  
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  
+  --transition-speed: 0.3s;
+}
+
+body {
+  background-color: var(--color-primary);
+
+  main {
+    position: relative;
+
+    .registration {
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      z-index: 99999;
+      background-color: var(--shadow-modal);
+      transform: translateY(-120%);
+      transition: var(--transition-speed);
+      visibility: hidden;
+      opacity: 0;
+
+      .modul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        width: 500px;
+        height: 500px;
+        background-color: var(--color-modal);
+        border: 10px solid var(--color-secondary);
+        border-radius: var(--border-radius-md);
+        padding: var(--spacing-lg) var(--spacing-md);
+
+        p {
+          color: var(--color-text);
+          text-align: center;
+          font-size: 32px;
+          padding: var(--spacing-md);
+        }
+
+        label {
+          text-align: center;
+          font-size: 32px;
+          font-weight: 600;
+          color: var(--color-secondary);
+        }
+
+        input {
+          background-color: var(--color-panel);
+          outline: none;
+          border: 4px solid var(--color-secondary);
+          height: 60px;
+          width: 280px;
+          padding: var(--spacing-sm);
+          border-radius: var(--border-radius-round);
+          color: var(--color-secondary);
+          font-size: 24px;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        .button {
+          font-size: 24px;
+          cursor: pointer;
+          font-weight: 600;
+          padding: 10px 40px;
+          border-radius: 40px;
+          background-color: var(--color-secondary);
+          transition: var(--transition-speed);
+          color: var(--color-button-text);
+          border: 4px solid var(--color-panel);
+
+          &:hover {
+            background-color: var(--color-panel);
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+          }
+        }
+
+        #close {
+          cursor: pointer;
+          position: absolute;
+          border: none;
+          right: var(--spacing-sm);
+          top: var(--spacing-sm);
+
+          .bi {
+            background-color: var(--color-modal);
+            color: var(--color-secondary);
+            font-size: 32px;
+          }
+        }
+      }
+    }
+
+    .active {
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: translateY(0);
+    }
+
+    .container {
+      display: grid;
+      position: relative;
+      max-width: 1300px;
+      margin: auto;
+      border: 10px solid var(--color-secondary);
+      border-radius: var(--border-radius-lg);
+
+      #scorePanel {
+        height: 100px;
+        background-color: var(--color-panel);
+        border-bottom: 10px solid var(--color-secondary);
+        color: var(--color-secondary);
+        display: flex;
+        justify-content: space-between;
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+
+        p {
+          font-size: 40px;
+          font-weight: 600;
+        }
+      }
+
+      #gamePanel {
+        position: relative;
+        width: 100%;
+        height: 640px;
+        background: url(./greengrass.jpg);
+        border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+
+        .bee {
+          display: flex;
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          align-items: center;
+
+          .head {
+            position: relative;
+            height: 16px;
+            width: 8px;
+            background: linear-gradient(
+              90deg,
+              var(--color-secondary) 20%,
+              var(--color-dark) 33%,
+              var(--color-dark) 53%,
+              var(--color-secondary) 73%
+            );
+            border-radius: 50%;
+
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              background-color: var(--color-dark);
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              border: 2px solid var(--color-secondary);
+              border-bottom: none;
+            }
+
+            &::before {
+              transform: translate(4px, 2px) rotate(225deg);
+            }
+
+            &::after {
+              bottom: 0;
+              transform: translate(4px, -2px) rotate(315deg);
+            }
+          }
+
+          .body {
+            position: relative;
+            width: 24px;
+            height: 20px;
+            background: linear-gradient(
+              90deg,
+              var(--color-secondary) 15%,
+              var(--color-dark) 30%,
+              var(--color-dark) 40%,
+              var(--color-secondary) 55%,
+              var(--color-secondary) 65%,
+              var(--color-dark) 80%,
+              var(--color-dark) 90%,
+              var(--color-secondary) 100%
+            );
+            border-radius: 50%;
+
+            &::after,
+            &::before {
+              content: "";
+              position: absolute;
+              left: 14px;
+              width: 10px;
+              height: 20px;
+              background-color: var(--color-wings);
+            }
+
+            &::after {
+              bottom: 10px;
+              border-radius: 20% 40% 50% 50%;
+              animation: leftWing 100ms linear infinite;
+            }
+
+            &::before {
+              top: 10px;
+              border-radius: 40% 20% 50% 50%;
+              animation: rightWing 100ms linear infinite;
+            }
+          }
+        }
+
+        .flower {
+          display: flex;
+          position: absolute;
+          height: 40px;
+          width: 40px;
+          transition: 0.2s;
+          justify-content: center;
+          align-items: center;
+
+          .flowerCenter {
+            position: relative;
+            width: 20px;
+            height: 10px;
+            background-color: var(--color-secondary);
+            border-radius: 50% 50% 30% 30%;
+            z-index: 999;
+
+            #flowerCenter {
+              position: absolute;
+              left: 2px;
+              width: 16px;
+              height: 10px;
+              background-color: var(--color-secondary);
+              border-radius: 50% 50% 30% 30%;
+              z-index: 9999;
+            }
+
+            .flowerLeaf {
+              position: absolute;
+              height: 18px;
+              width: 12px;
+              background-color: var(--color-accent);
+              border-radius: 50%;
+              z-index: -11;
+            }
+
+            #leaf1 { top: -150%; left: 50%; transform: translate(-50%); }
+            #leaf2 { top: -130%; left: 80%; transform: rotate(45deg); }
+            #leaf3 { top: -20%; right: -60%; transform: rotate(90deg); }
+            #leaf4 { bottom: -150%; left: 60%; transform: rotate(150deg); }
+            #leaf5 { bottom: -150%; left: 10%; transform: rotate(200deg); }
+            #leaf6 { bottom: -90%; right: 80%; transform: rotate(250deg); }
+            #leaf7 { top: -110%; right: 80%; transform: rotate(300deg); }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes leftWing {
+  0%, 100% { transform: translate(-100%) rotate(-50deg); }
+  50% { transform: translate(50%) rotate(50deg); }
+}
+
+@keyframes rightWing {
+  0%, 100% { transform: translate(-100%) rotate(230deg); }
+  50% { transform: translate(50%) rotate(130deg); }
+}

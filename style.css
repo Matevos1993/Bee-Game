@@ -1,0 +1,328 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  --bee-wings: rgba(77, 77, 110, 0.5);
+  --black: black;
+  --body: rgb(59, 219, 255);
+  --button: rgb(56, 251, 72);
+  --button-color: rgb(4, 91, 204);
+  --button-hover: rgb(42, 234, 255);
+  --flower-leaf: rgb(219, 0, 62);
+  --font: white;
+  --modul-shadow: rgba(255, 255, 255, 0.24);
+  --modul-background: rgb(66, 156, 246);
+  --scorepanel: rgb(32, 128, 223);
+  --yellow: rgb(244, 255, 45);
+}
+
+body {
+  background-color: var(--body);
+}
+body main {
+  position: relative;
+}
+body main .registration {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99999;
+  background-color: var(--modul-shadow);
+  transform: translateY(-120%);
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+body main .registration .modul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  background-color: var(--modul-background);
+  border: 10px solid var(--yellow);
+  border-radius: 8px;
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+body main .registration .modul p {
+  color: var(--font);
+  text-align: center;
+  font-size: 32px;
+  padding: 20px;
+}
+body main .registration .modul label {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--yellow);
+}
+body main .registration .modul input {
+  background-color: var(--scorepanel);
+  outline: none;
+  border: 4px solid var(--yellow);
+  height: 60px;
+  width: 280px;
+  padding: 8px;
+  border-radius: 50px;
+  color: var(--yellow);
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+body main .registration .modul .button {
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 40px;
+  background-color: var(--yellow);
+  transition: 0.3s;
+  color: var(--button-color);
+  border: 4px solid var(--scorepanel);
+}
+body main .registration .modul .button:hover {
+  background-color: var(--scorepanel);
+  color: var(--yellow);
+  border: 4px solid var(--yellow);
+}
+body main .registration .modul #close {
+  cursor: pointer;
+  position: absolute;
+  border: none;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+body main .registration .modul #close .bi {
+  background-color: var(--modul-background);
+  color: var(--yellow);
+  font-size: 32px;
+}
+body main .active {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+body main .container {
+  display: grid;
+  position: relative;
+  max-width: 1300px;
+  margin: auto;
+  border: 10px solid var(--yellow);
+  border-radius: 16px;
+}
+body main .container #scorePanel {
+  height: 100px;
+  background-color: var(--scorepanel);
+  border-bottom: 10px solid var(--yellow);
+  color: var(--yellow);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+body main .container #scorePanel p {
+  font-size: 40px;
+  font-weight: 600;
+}
+body main .container #gamePanel {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  background: url(./greengrass.jpg);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+body main .container #gamePanel .bee {
+  display: flex;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+}
+body main .container #gamePanel .bee .head {
+  position: relative;
+  height: 16px;
+  width: 8px;
+  background: linear-gradient(90deg, var(--yellow) 20%, var(--black) 33%, var(--black) 53%, var(--yellow) 73%);
+  border-radius: 50%;
+}
+body main .container #gamePanel .bee .head::before {
+  content: "";
+  position: absolute;
+  background-color: var(--black);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  border-left: 2px solid var(--yellow);
+  border-top: 2px solid var(--yellow);
+  border-right: 2px solid var(--yellow);
+  transform: translate(4px, 2px) rotate(225deg);
+}
+body main .container #gamePanel .bee .head::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background-color: var(--black);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  border-left: 2px solid var(--yellow);
+  border-top: 2px solid var(--yellow);
+  border-right: 2px solid var(--yellow);
+  transform: translate(4px, -2px) rotate(315deg);
+}
+body main .container #gamePanel .bee .body {
+  position: relative;
+  width: 24px;
+  height: 20px;
+  background: linear-gradient(90deg, var(--yellow) 15%, var(--black) 30%, var(--black) 40%, var(--yellow) 55%, var(--yellow) 65%, var(--black) 80%, var(--black) 90%, var(--yellow) 100%);
+  border-radius: 50%;
+}
+body main .container #gamePanel .bee .body::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  transform: translate(-100%) rotate(-50deg);
+  width: 10px;
+  height: 20px;
+  background-color: var(--bee-wings);
+  border-radius: 20% 40% 50% 50%;
+  animation: leftWing 100ms linear infinite;
+  /*translate(-100%) rotate(-50deg),  translate(50%) rotate(50deg); */
+}
+@keyframes leftWing {
+  0% {
+    transform: translate(-100%) rotate(-50deg);
+  }
+  50% {
+    transform: translate(50%) rotate(50deg);
+  }
+  100% {
+    transform: translate(-100%) rotate(-50deg);
+  }
+}
+body main .container #gamePanel .bee .body::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  transform: translate(-100%) rotate(230deg);
+  width: 10px;
+  height: 20px;
+  background-color: var(--bee-wings);
+  border-radius: 40% 20% 50% 50%;
+  animation: rightWing 100ms linear infinite;
+  /*transform: translate(-100%) rotate(230deg);transform: translate(50%) rotate(130deg)*/
+}
+@keyframes rightWing {
+  0% {
+    transform: translate(-100%) rotate(230deg);
+  }
+  50% {
+    transform: translate(50%) rotate(130deg);
+  }
+  100% {
+    transform: translate(-100%) rotate(230deg);
+  }
+}
+body main .container #gamePanel .flower {
+  display: flex;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  transition: 0.2s;
+  justify-content: center;
+  align-items: center;
+}
+body main .container #gamePanel .flower .flowerCenter {
+  position: relative;
+  width: 20px;
+  height: 10px;
+  background-color: var(--yellow);
+  border-radius: 50% 50% 30% 30%;
+  z-index: 999;
+}
+body main .container #gamePanel .flower .flowerCenter #flowerCenter {
+  position: absolute;
+  left: 2px;
+  width: 16px;
+  height: 10px;
+  background-color: var(--yellow);
+  border-radius: 50% 50% 30% 30%;
+  z-index: 9999;
+}
+body main .container #gamePanel .flower .flowerCenter .flowerLeaf {
+  position: absolute;
+  height: 18px;
+  width: 12px;
+  background-color: rgb(219, 0, 62);
+  border-radius: 50%;
+}
+body main .container #gamePanel .flower .flowerCenter #leaf1 {
+  z-index: -11;
+  top: -150%;
+  left: 50%;
+  transform: translate(-50%);
+}
+body main .container #gamePanel .flower .flowerCenter #leaf2 {
+  z-index: -11;
+  top: -130%;
+  left: 80%;
+  transform: rotate(45deg);
+}
+body main .container #gamePanel .flower .flowerCenter #leaf3 {
+  z-index: -11;
+  top: -20%;
+  right: -60%;
+  transform: rotate(90deg);
+}
+body main .container #gamePanel .flower .flowerCenter #leaf4 {
+  z-index: -11;
+  bottom: -150%;
+  left: 60%;
+  transform: rotate(150deg);
+}
+body main .container #gamePanel .flower .flowerCenter #leaf5 {
+  z-index: -11;
+  bottom: -150%;
+  left: 10%;
+  transform: rotate(200deg);
+}
+body main .container #gamePanel .flower .flowerCenter #leaf6 {
+  z-index: -11;
+  bottom: -90%;
+  right: 80%;
+  transform: rotate(250deg);
+}
+body main .container #gamePanel .flower .flowerCenter #leaf7 {
+  z-index: -11;
+  top: -110%;
+  right: 80%;
+  transform: rotate(300deg);
+}/*# sourceMappingURL=style.css.map */

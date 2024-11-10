@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bee Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div id="registration" class="registration active">
+        <div class="modul">
+          <label for="name">Enter your name to start playing!</label>
+          <input type="text" id="name" placeholder="Enter your name" value="Player" />
+          <button id="start" class="button">Start Game</button>
+        </div>
+      </div>
+      <div id="playAgain" class="registration">
+        <div class="modul">
+          <p>
+            Game Over! Would you like to play again?
+          </p>
+          <button id="close"><i class="bi bi-x-lg"></i></button>
+          <button id="startAgain" class="button">Start Game</button>
+        </div>
+      </div>
+      <div class="container">
+        <div id="scorePanel">
+          <p id="player"></p>
+          <p id="score">0</p>
+          <p id="level">Level 1</p>
+        </div>
+        <div id="gamePanel">
+          <div class="flower" id="flower">
+            <div class="flowerCenter">
+              <span id="leaf1" class="flowerLeaf"></span>
+              <span id="leaf2" class="flowerLeaf"></span>
+              <span id="leaf3" class="flowerLeaf"></span>
+              <span id="leaf4" class="flowerLeaf"></span>
+              <span id="leaf5" class="flowerLeaf"></span>
+              <span id="leaf6" class="flowerLeaf"></span>
+              <span id="leaf7" class="flowerLeaf"></span>
+              <span id="flowerCenter"></span>
+            </div>
+          </div>
+          <div class="bee" id="bee">
+            <div class="body"></div>
+            <div class="head"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
